@@ -1,8 +1,0 @@
-/* Follow the instructions found in the description to complete the JavaScript functionality.*/
-
-JavaScript is used in web development   
-
-
-drop down >
-  navigation bar
-  items
