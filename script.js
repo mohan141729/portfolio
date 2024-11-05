@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*let homeIdEl = document.getElementById('homeId');
 let aboutIdEl = document.getElementById('aboutId');
 let servicesIdEl = document.getElementById('servicesId');
@@ -73,7 +72,6 @@ window.onscoll =  () =>{
 
     });
 }
-=======
 /*let homeIdEl = document.getElementById('homeId');
 let aboutIdEl = document.getElementById('aboutId');
 let servicesIdEl = document.getElementById('servicesId');
@@ -148,4 +146,3 @@ window.onscoll =  () =>{
 
     });
 }
->>>>>>> 912975d8ab4a31a54251594e9adc2333612bc519
