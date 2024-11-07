@@ -9,8 +9,8 @@
 :root{
     --primary-color:#0ef;
     --bg-color:#081b29;
-    --second-bg-color:#11588e;
-    --text-color:#fff;
+    --second-bg-color:#0d2a3f;
+    --text-color:#d9d9d9;
 }
 html{
     scroll-behavior: smooth;
@@ -147,54 +147,246 @@ nav{
     transition: all .3s ease-in-out;
 }
 
-.section-about{
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    display:flex;
-    gap:10px;
-    background-color:#0d2b40;
+.about_container{
+    width: 100%;
+    padding:30px;
+    background-color: var(--second-bg-color);
+    height: 100vh;
 }
-.about-image{
-    width:250px;
-    border-width:5px;
-    border-style:solid;
-    box-shadow: 0 0 20px #0ef;
-    border-color:var(--primary-color);
-    border-radius: 10px;
-    animation:ani-left 1s ease  forwards; 
+.imageSection{
+    grid-area:imageSect;
     
 }
-.about-image img{
+.InfoSection{
+    grid-area: infoSect;
+    
+}
+.skillSection{
+    grid-area: skillSect;
+}
+.about_container .about_contents{
+   display: grid;
+   grid-template-columns:2fr 5fr ;
+   grid-gap:70px;
+   grid-template-areas: 'imageSect infoSect' 
+                         'skillSect skillSect';
+}
+.about_contents .imageSection{
+    position:relative;
+    min-width: 300px;
+    height: 300px;
+}
+.imageSection img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index:2;
+}
+
+.about_contents .imageSection::after{
+    position: absolute ;
+    content: "";
+    width: 100%;
+    height: 100%;
+    outline: 3px solid var(--primary-color);
+    top:15px;
+    left:15px;
+    z-index: 1;
+}
+.InfoSection h1{
+    color:var(--text-color);
+    font-size: 30px;
+    font-family: helvetica;
+    text-transform:uppercase;
+    display:inline-block;
+    margin-bottom: 5px;
+    position:relative;
+
+}
+
+.InfoSection h1::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: var(--text-color);
+    top:110%;
+    left: 0;
+}
+.InfoSection h1::after{
+    content: "";
+    position: absolute;
+    width: 40%;
+    height: 3px;
+    background-color: var(--primary-color);
+    top:calc(110% - 1px);
+    left: 0px;
+}
+
+.InfoSection h2{
+    font-family: helvetica;
+    font-size: 20px;
+    font-weight:600;
+    color: var(--primary-color);
+    padding:14px 0px 15px;
+    text-transform:capitalize;
+    letter-spacing: 1px;
+
+}
+.InfoSection p{
+    color:var(--text-color);
+    font-size: 18px;
+    line-height:1.2;
+    text-align:justify;
+    padding-bottom: 8px;
+}
+.personalInfo{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:10px 20px;
+    margin-top: 14px;
+    padding-bottom:10px;
+    border-bottom: 1px solid #555;
+}
+.personalInfo div{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+.personalInfo div span{
+    color:var(--text-color);
+    letter-spacing: 1px;
+}
+
+.skillSection{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:10px 80px;
+}
+.skillSection .subject{
+    font-size:17px;
+    font-weight:thin;
+    color:var(--text-color);
+    padding-bottom:10px;
+    text-transform:uppercase;
+    letter-spacing: 1px;
+
+}
+.progress_bar{
+    width: 100%;
+    height:16px;
+    background-color: var(--second-bg-color);
+    padding:4px 6px;
+    border-top:1px solid #000;
+    border-bottom:1px solid #444;
+    border-radius: 15px;
+}
+.progress-line{
+    position:relative;
     width:100%;
     height:100%;
-    border-radius:5px;
-    background-image:linear-gradient(to top, #ccfcff,#0ef);
+    background-color:var(--primary-color);
+    box-shadow: -1px -1px 2px #222222,
+                 1px 1px 2px #111111 ;
+    border-radius:15px ;               
 }
-@keyframes ani-left {
-    0%{
-        transform: translateX(-100px);
-        opacity:0;
-    }
-    100%{
-        transform: translateX(0px);
-        opacity:1;
-    }
-    
+.progress-line::after{
+    position:absolute;
+    content:attr(value);
+    top:-35px;
+    right:0px;
+    transform: translateX(-50px);
+    color:var(--text-color);
+    font-size:17px;
+
 }
-.about-content{
-    animation: ani-right 1s ease-in  1 ;
+@media(max-width:1068px){
+    .about_container{
+        height: 100%;
+ 
+    }
+    .about_container .about_contents{
+        display: grid;
+        grid-template-columns:2fr 5fr ;
+        grid-gap:70px;
+        grid-template-areas: 'imageSect skillSect' 
+                              'infoSect infoSect';
+     }
+     .skillSection{
+        
+        grid-template-columns: 1fr;
+        grid-gap:20px;
+    }
+    .home-image {
+        width:250px;
+        height:250px;
+        margin-top:40px;
+      }
+      .card-title{
+          font-size: 1.4rem;
+          font-weight: 600;
+      }
+      .card-name{
+          font-size: 3.6rem;
+          font-weight: 600;
+      }
+      .social a{
+          gap: 0.7rem;
+          font-size: 2.4rem;
+      }
+      .button{
+          font-size: 1.2rem;
+          padding: 0.8rem 1.6rem;
+      }
+      p{
+          font-size: 1.4rem;
+      }
+      .about-image{
+          width:180px;
+          align-items:center;
+          display:flex;
+          justify-items:center;
+      }
+    }
+
+@media(max-width:668px){
+    .about_container .about_contents{
+        display: grid;
+        grid-template-columns:2fr 5fr ;
+        grid-gap:70px;
+        grid-template-areas: 'imageSect imageSect' 
+                              'infoSect infoSect'
+                              'skillSect skillSect';
+     }
+     .InfoSection p{
+        font-size:15px;
+     }
+     .personalInfo {
+        font-size: 15px;
+     }
+     .skillSection .subject ,.progress-line::after{
+         font-size:14px;
+     }
+     .progress_bar{
+        height: 15px;
+     } 
+
+     .about_contents .imageSection{
+        max-width: 400px;
+        height: 300px;
+        
+     }
+     .about_contents .imageSection img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+     }
 }
-@keyframes ani-right {
-    0%{
-        transform: translate(100px);
-        opacity:0;
+@media (max-width:576px){
+    .personalInfo{
+        grid-template-columns: 1fr;
+
     }
-    100%{
-        transform: translate(0px);
-        opacity:1;
-    }
-    
 }
 
 .skills{
@@ -307,7 +499,7 @@ nav{
         padding: 0.8rem 1.6rem;
     }
     p{
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
     .about-image{
         width:180px;
